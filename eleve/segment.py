@@ -139,3 +139,17 @@ class Segmenter:
             ]
 
         return [seg.words[1:-1] for seg in best_segmentations[-1][-nbest:]]
+
+    def segmentSentenceBIES(self, sent: str) -> str:
+        tokens = list(sent)
+        words = self.segment(tokens)
+        bies = []
+        for w in words:
+            if len(w) == 1:
+                bies.append(w[0] + "-S")
+            else:
+                bies.append(w[0] + "-B")
+                for i in w[1:-1]:
+                    bies.append(i + "-I")
+                bies.append(w[-1] + "-E")
+        return " ".join(bies)
