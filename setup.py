@@ -11,6 +11,7 @@ assert sys.version_info[0] >= 3, "For python >= 3 only"
 
 cwd = os.path.abspath(os.path.dirname(__file__))
 readme = open(os.path.join(cwd, "README.rst")).read()
+os.environ['CFLAGS'] = '-O3 -Wall -std=c++11'
 
 setup(
     name="eleve",
@@ -35,8 +36,8 @@ setup(
     ],
     ext_modules=cythonize(["eleve/cython_storage.pyx"],
                           compiler_directives={'language_level' : "3"},
-                          language="c++",
-                          extra_compile_args=["-std=c++11"],
+                          # language="c++",
+                          # extra_compile_args=["-std=c++11"],
                           annotate=True),
     install_requires=["plyvel"],
 )
