@@ -36,6 +36,7 @@ setup(
     ext_modules=cythonize(["eleve/cython_storage.pyx"],
                           compiler_directives={'language_level' : "3"},
                           language="c++",
+                          extra_compile_args=["-std=c++11"],
                           annotate=True),
     install_requires=["plyvel"],
 )
