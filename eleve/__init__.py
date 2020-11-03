@@ -4,8 +4,9 @@
 """
 
 
-from . import segment
 from . import memory
+from . import segment
+from . import cython_storage
 
 from . import segment
 from . import utils
