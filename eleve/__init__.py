@@ -10,6 +10,8 @@ __all__ = [
     "MemoryStorage",
     "Segmenter",
     "CSVStorage",
+    "preprocessing",
+    "utils"
 ]
 
 from eleve.segment import Segmenter
