@@ -13,8 +13,8 @@ __version__ = "20.10"
 #     "preprocessing",
 #     "utils"
 # ]
-
-from eleve.segment import Segmenter
-from eleve.memory import MemoryStorage, CSVStorage
-from . import  preprocessing
-from . import utils
+#
+# from eleve.segment import Segmenter
+# from eleve.memory import MemoryStorage, CSVStorage
+# from . import  preprocessing
+# from . import utils
