@@ -16,5 +16,5 @@ __all__ = [
 
 from eleve.segment import Segmenter
 from eleve.memory import MemoryStorage, CSVStorage
-#from . import preprocessing
-#from . import utils
+from . import preprocessing
+from . import utils
