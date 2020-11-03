@@ -3,6 +3,8 @@
 
 """
 
+
+from . import segment
 from . import utils
 
 
