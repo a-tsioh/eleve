@@ -2,7 +2,7 @@ from typing import List
 
 from ..preprocessing import chinese
 
-from .. import Segmenter
+from ..segment import Segmenter
 
 def preproc_for_training(l: str) -> List[str]:
     chunks = chinese.tokenize_by_unicode_category(l)
