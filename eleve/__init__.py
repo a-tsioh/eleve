@@ -16,5 +16,5 @@ __version__ = "20.10"
 
 from eleve.segment import Segmenter
 from eleve.memory import MemoryStorage, CSVStorage
-from eleve import  preprocessing
-from eleve import utils
+from . import  preprocessing
+from . import utils
