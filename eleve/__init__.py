@@ -3,26 +3,11 @@
 
 """
 
+__version__ = "20.10.8"
 
-from . import memory
-from . import segment
-from . import cython_storage
-
-from . import segment
-from . import utils
+from eleve.segment import Segmenter
+from eleve.memory import MemoryStorage, CSVStorage
+from eleve import preprocessing
+from eleve import utils
 
 
-__version__ = "20.10"
-
-# __all__ = [
-#     "MemoryStorage",
-#     "Segmenter",
-#     "CSVStorage",
-#     "preprocessing",
-#     "utils"
-# ]
-#
-# from eleve.segment import Segmenter
-# from eleve.memory import MemoryStorage, CSVStorage
-# from . import  preprocessing
-# from . import utils

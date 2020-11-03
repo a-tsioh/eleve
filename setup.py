@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import os, sys
 import glob
-from setuptools import setup, Extension
+from setuptools import setup, Extension, find_packages
 from Cython.Build import cythonize
 from Cython.Distutils import build_ext
 
@@ -15,13 +15,13 @@ os.environ['CFLAGS'] = '-O3 -Wall -std=c++11'
 
 setup(
     name="eleve",
-    version="20.10",
+    version="20.10.8",
     description="Extraction de LExique par Variation d'Entropie - Lexicon extraction based on the variation of entropy",
     long_description=readme,
     author="Pierre Magistry, Korantin Auguste, Emmanuel Navarro",
     author_email="contact@kodexlab.com",
     url="https://github.com/kodexlab/eleve",
-    packages=["eleve"],
+    packages=find_packages(),
     scripts=["scripts/eleve-train", "scripts/eleve-chinese"],
     classifiers=[
         "Programming Language :: Python",
@@ -32,12 +32,14 @@ setup(
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Cython",
         "Topic :: Scientific/Engineering",
     ],
-    ext_modules=cythonize(["eleve/cython_storage.pyx"],
-                          compiler_directives={'language_level' : "3"},
-                          # language="c++",
-                          # extra_compile_args=["-std=c++11"],
-                          annotate=True),
-    install_requires=["plyvel"],
+    ext_modules=cythonize(Extension('eleve.cython_storage',
+                          ["./eleve/cython_storage.pyx"],
+                        extra_compile_args=['-std=c++11'])
+                          )
+    # ext_modules=cythonize(["./eleve/cython_storage.pyx"],
+    #                       compiler_directives={'language_level' : "3"},
+    #                       annotate=True),
 )
