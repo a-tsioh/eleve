@@ -1,7 +1,7 @@
 from typing import List
 import unicodedata as ud
 
-from .. import Segmenter
+from ..segment import Segmenter
 from functools import lru_cache
 from multiprocessing import Pool
 
