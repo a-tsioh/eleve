@@ -34,7 +34,11 @@ setup(
         "Programming Language :: Cython",
         "Topic :: Scientific/Engineering",
     ],
-    ext_modules=cythonize(["./eleve/cython_storage.pyx"],
-                          compiler_directives={'language_level' : "3"},
-                          annotate=True),
+    ext_modules=cythonize(Extension('eleve.cython_storage',
+                          ["./eleve/cython_storage.pyx"],
+                        extra_compile_args=['-std=c++11'])
+                          )
+    # ext_modules=cythonize(["./eleve/cython_storage.pyx"],
+    #                       compiler_directives={'language_level' : "3"},
+    #                       annotate=True),
 )
